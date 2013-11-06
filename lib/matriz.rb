@@ -42,9 +42,10 @@ class Matriz
 	
 	end
 
-	def *(other)
-
 	
+	
+	def *(other) # Sobrecarga del operador * para que multiplique dos matrices.
+
 	copia = Array.new(@fil) {Array.new(other.col)}
 
 	for i in (0...@fil)
@@ -68,10 +69,9 @@ class Matriz
 		
 
 
-
 	end
-
-		
+	
+	
 
 	def ==(other) #Sobrecarga del operador == para poder comprobar si dos matrices son iguales
 	
@@ -86,6 +86,21 @@ class Matriz
 		end
 	
 	end
-
+	
+	
+	
+	def traspuesta #Metodo para hallar la traspuesta de una matriz
+	
+		copia = Array.new(@fil) {Array.new(@col)}
+		
+		for i in (0...@fil)
+			for j in (0...@col)
+				copia[i][j] = matrix[j][i]
+			end
+		end
+		
+		Matriz.new(copia)
+	
+	end
 
 end
