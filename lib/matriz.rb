@@ -42,6 +42,37 @@ class Matriz
 	
 	end
 
+	def *(other)
+
+	
+	copia = Array.new(@fil) {Array.new(other.col)}
+
+	for i in (0...@fil)
+
+		for j in (0...other.col)
+		
+			copia[i][j] = 0
+
+			for z in (0...@col)
+	
+				copia[i][j] = copia[i][j] + (matrix[i][z] * other.matrix[z][j])
+
+ 			end
+	
+		end
+	
+	end
+			
+			
+	Matriz.new(copia)
+		
+
+
+
+	end
+
+		
+
 	def ==(other) #Sobrecarga del operador == para poder comprobar si dos matrices son iguales
 	
 		if @matrix == other.matrix

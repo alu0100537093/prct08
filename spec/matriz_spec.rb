@@ -20,5 +20,11 @@ describe Matriz do
 	(@m1 - Matriz.new([[1,4,2],[2,1,2],[1,0,1]])) == Matriz.new([[1,1,1],[1,0,2],[0,2,2]])
 
 	end
+	
+	it "Se multiplican correctamente 2 matrices con el operador *" do
+
+	(@m1 * Matriz.new([[1,2,3],[1,1,1],[1,0,0]])) == Matriz.new([[10,9,11],[8,7,10],[6,4,5]])
+
+	end
 
 end
