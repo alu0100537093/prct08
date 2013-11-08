@@ -1,4 +1,5 @@
 
+
 class Matriz
 
 	attr_reader :fil, :col, :matrix

@@ -1,4 +1,5 @@
 require "matriz.rb"
+require "fraccion.rb"
 
 
 describe Matriz do
@@ -6,7 +7,7 @@ describe Matriz do
 	before :each do
 
 		@m1=Matriz.new([[2,5,3],[3,1,4],[1,2,3]])
-
+		
 
 	end
 
@@ -34,6 +35,29 @@ describe Matriz do
         @m1.traspuesta.should == Matriz.new([[2,3,1],[5,1,2],[3,4,3]])
 	
 	end
+
+
+describe "Modificacion para poder trabajar con matrices formadas por fracciones" do
+
+	before :each do
+		
+		@m2=Matriz.new([[Fraccion.new(1,2), Fraccion.new(1,2), Fraccion.new(1,3)],[Fraccion.new(1,2), Fraccion.new(1,2), Fraccion.new(1,3)],[Fraccion.new(1,2), Fraccion.new(1,2), Fraccion.new(1,3)]])
+		@m3=Matriz.new([[Fraccion.new(1,2),Fraccion.new(1,2)], [Fraccion.new(1,2),Fraccion.new(1,2)], [Fraccion.new(1,2),Fraccion.new(1,2)]])
+		@m4=Matriz.new([[Fraccion.new(3,4),Fraccion.new(3,4)], [Fraccion.new(3,4),Fraccion.new(3,4)], [Fraccion.new(3,4),Fraccion.new(3,4)]])
+	end
 	
+	
+	it "Suma de matrices formadas por fracciones" do
+	
+		(@m2 + @m2).should == Matriz.new([[Fraccion.new(1,1), Fraccion.new(1,1), Fraccion.new(2,3)], [Fraccion.new(1,1), Fraccion.new(1,1), Fraccion.new(2,3)], [Fraccion.new(1,1), Fraccion.new(1,1), Fraccion.new(2,3)]])
+	
+	end
+	
+	it "Producto de matrices formadas por fracciones" do
+	
+		(@m3*@m3).should == @m4
+	
+	end
+end
 
 end
