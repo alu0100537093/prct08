@@ -74,16 +74,33 @@ class Matriz
 	
 
 	def ==(other) #Sobrecarga del operador == para poder comprobar si dos matrices son iguales
-	
-		if @matrix == other.matrix
+
+	comprobacion = true
+
+
+	if(@fil == other.fil && @col == other.col)
 		
-			true
-		
-		else
-			
-			false
-		
+		for i in (0...@fil)
+
+			for j in (0...@col)
+
+
+				if matrix[i][j] != other.matrix[i][j]
+
+				comprobacion = false
+				
+				end		
+			end
 		end
+
+		
+	else
+	
+		comprobacion = false
+		
+	end
+
+	comprobacion
 	
 	end
 	
